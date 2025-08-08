@@ -83,8 +83,15 @@ body {
 .site-header nav a { text-decoration: none; }
 .site-header nav a:hover { text-decoration: underline; }
 
-/* No background guides; keep pure white */
-.col-guides { background: var(--background); }
+/* Background vertical guides at 1/3 and 2/3 like reference */
+.col-guides,
+.with-guides,
+.with-guides .site-header {
+  background-image: linear-gradient(to right, var(--details) 1px, transparent 1px);
+  background-size: 33.333% 100%;
+}
+/* Ensure header's background is transparent so lines show through */
+.site-header { background-color: transparent; }
 
 /* Grid layout */
 .container {
