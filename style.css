@@ -1,0 +1,232 @@
+/*
+  Typography and layout definitions inspired by gmaurovich.com.  The
+  custom fonts are bundled in the repository and loaded via
+  @font-face.  Variables are used to centralise colours and fonts.
+*/
+
+@font-face {
+  font-family: 'Denim';
+  /* Load the exact typeface from gmaurovich.com to match the reference */
+  src: url('https://gmaurovich.com/assets/css/fonts/DenimWD-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Denim';
+  /* Load the medium weight of the Denim font */
+  src: url('https://gmaurovich.com/assets/css/fonts/DenimWD-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PPWriter';
+  /* Load the PPWriter Book weight used in the reference site */
+  src: url('https://gmaurovich.com/assets/css/fonts/PPWriter-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --sans: 'Space Grotesk', 'Denim', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --serif: 'PPWriter', Georgia, 'Times New Roman', Times, serif;
+  --background: #ffffff;
+  --details: #e9e9e9; /* lighten for hairline */
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --column-gap: 2rem;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.65;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Site header */
+/* Horizontal header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: transparent; /* fully transparent so text shows under */
+  backdrop-filter: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0.75rem 2rem 0.25rem; /* smaller header */
+  border-bottom: none;
+}
+.site-title {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(1.85rem, 5.5vw, 4rem); /* slightly smaller */
+  line-height: 0.9;
+  background: transparent;
+}
+.site-header nav a { text-decoration: none; }
+.site-header nav a:hover { text-decoration: underline; }
+
+/* No background guides; keep pure white */
+.col-guides { background: var(--background); }
+
+/* Grid layout */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Tiny MENU label not used with horizontal header */
+.menu-label { display: none; }
+
+.column {
+  padding: 2rem;
+  border-right: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.column:last-child { border-right: none; }
+
+/* Transparent heading block (left column now empty, but keep spec) */
+.left h1 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 6.5rem;
+  line-height: 0.9;
+  margin-top: 0;
+  margin-bottom: 0;
+  background: transparent;
+}
+
+/* Intro spans middle + right columns */
+#intro { grid-column: 2 / 4; font-family: var(--serif); font-size: 1.35rem; line-height: 1.75; text-align: left; margin-left: 0; padding-right: 2rem; padding-top: 14vh; }
+
+.middle p {
+  margin-bottom: 1.1rem; /* slightly tighter between lines visually */
+  margin-left: 0;
+  max-width: 82ch; /* bring lines closer to each other horizontally */
+  font-size: 1.1rem;
+  line-height: 2; /* vertical rhythm preserved */
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+@media (min-width: 1200px) {
+  .middle p { max-width: 100ch; }
+}
+
+/* Space Grotesk body for intro paragraph */
+.intro-text { font-family: var(--serif); }
+
+/* Subtle keyword animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.highlight-fade {
+  display: inline-block;
+  animation: fadeUp 420ms ease-out both;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Underline reveal for links */
+.underline-reveal { position: relative; text-decoration: none; }
+.underline-reveal::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 1px;
+  background: currentColor;
+  transition: width 220ms ease;
+}
+.underline-reveal:hover::after,
+.underline-reveal:focus-visible::after { width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .highlight-fade { animation: none !important; }
+  .underline-reveal::after { transition: none !important; }
+}
+
+/* Boxed chips like reference */
+.tag,
+.boxed,
+a.tag {
+  display: inline-block;
+  margin-right: 0.3rem;
+  padding: 0.08rem 0.35rem;
+  border: 1px solid var(--text-primary);
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-size: 0.9em;
+  text-transform: lowercase;
+  vertical-align: baseline;
+  color: inherit;
+  text-decoration: none;
+}
+.tag:hover,
+.boxed:hover,
+a.tag:hover { text-decoration: none; background: #000; color: #fff; transition: background 160ms ease, color 160ms ease; }
+
+/* Contact-like chip */
+.contact {
+  border: 1px solid var(--text-primary);
+  padding: 0.05rem 0.25rem;
+  border-radius: 2px;
+  text-decoration: none;
+  color: inherit;
+  font-family: var(--sans);
+  font-size: 0.85em;
+}
+.contact:hover { text-decoration: underline; }
+
+/* Underline utility */
+.u-underline { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: #bfbfbf; }
+.u-underline:hover { text-decoration-color: #646464; }
+
+/* Focus ring (a11y) */
+:where(a, button, .tag, .contact).focus-visible,
+:where(a, button, .tag, .contact):focus-visible {
+  outline: 1px solid #666;
+  outline-offset: 2px;
+}
+
+/* Legacy section styles removed/neutralized */
+.sections { display: none; }
+.panel { padding: 0; border: none; }
+.panel h2 { margin: 0; }
+.experience-list { display: none; }
+.panel a { color: inherit; text-decoration: none; }
+.panel a:hover { text-decoration: underline; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .site-header { padding: 0.75rem 1rem; }
+  .site-title { font-size: 1.35rem; }
+  .container { grid-template-columns: 1fr; }
+  .column { border-right: none; border-bottom: 1px solid var(--details); }
+  #intro { grid-column: 1 / -1; }
+  .sections { grid-column: 1 / -1; grid-template-columns: 1fr; }
+  .when { text-align: left; }
+}
