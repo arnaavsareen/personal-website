@@ -177,7 +177,6 @@ a.tag {
   border-radius: 2px;
   font-family: var(--sans);
   font-size: 0.9em;
-  text-transform: lowercase;
   vertical-align: baseline;
   color: inherit;
   text-decoration: none;
