@@ -77,6 +77,7 @@ body {
   font-weight: 500;
   font-size: clamp(1.85rem, 5.5vw, 4rem); /* slightly smaller */
   line-height: 0.9;
+  letter-spacing: -0.05em; /* tighter tracking */
   background: transparent;
 }
 .site-header nav a { text-decoration: none; }
@@ -119,7 +120,7 @@ body {
 }
 
 /* Intro spans middle + right columns */
-#intro { grid-column: 2 / 4; font-family: var(--serif); font-size: 1.35rem; line-height: 1.75; text-align: left; margin-left: var(--intro-offset); padding-right: 2rem; padding-top: 14vh; }
+#intro { grid-column: 2 / 4; font-family: var(--serif); font-size: 1.35rem; line-height: 1.75; text-align: left; margin-left: var(--intro-offset); padding-right: 2rem; padding-top: 14vh; letter-spacing: -0.05em; }
 
 .middle p {
   margin-bottom: 1.1rem; /* slightly tighter between lines visually */
@@ -222,11 +223,11 @@ a.tag:hover { text-decoration: none; background: #000; color: #fff; transition: 
 
 /* Responsive */
 @media (max-width: 900px) {
-  .site-header { padding: 0.75rem 1rem; }
-  .site-title { font-size: 1.35rem; }
+  .site-header { padding: 0.5rem 1rem; background: transparent; border-bottom: none; }
+  .site-title { font-size: clamp(1.5rem, 8vw, 2.25rem); }
   .container { grid-template-columns: 1fr; }
-  .column { border-right: none; border-bottom: 1px solid var(--details); }
-  #intro { grid-column: 1 / -1; }
+  .column { padding: 1rem; border-right: none; border-bottom: none; }
+  #intro { grid-column: 1 / -1; margin-left: 0; padding: 12vh 1rem 0 1rem; }
   .sections { grid-column: 1 / -1; grid-template-columns: 1fr; }
   .when { text-align: left; }
 }
