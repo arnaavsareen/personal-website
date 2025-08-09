@@ -360,4 +360,11 @@ a.tag:hover { text-decoration: none; background: #000; color: #fff; transition: 
   .essay-meta { text-align: left; font-size: 0.9rem; color: var(--text-secondary); }
   .sections { grid-column: 1 / -1; grid-template-columns: 1fr; }
   .when { text-align: left; }
+  
+  /* Remove vertical grid lines on mobile */
+  .with-guides,
+  .with-guides .site-header,
+  .col-guides {
+    background-image: none !important;
+  }
 }
