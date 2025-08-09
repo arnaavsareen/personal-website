@@ -39,7 +39,7 @@
   --text-primary: #000000;
   --text-secondary: #666666;
   --column-gap: 2rem;
-  --intro-offset: 3rem; /* horizontal nudge for intro alignment */
+  --intro-offset: 0; /* removed offset for better alignment */
 }
 
 html,
@@ -115,19 +115,134 @@ body {
 
 .column:last-child { border-right: none; }
 
-/* Transparent heading block (left column now empty, but keep spec) */
-.left h1 {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 6.5rem;
-  line-height: 0.9;
-  margin-top: 0;
-  margin-bottom: 0;
-  background: transparent;
+/* Section indicator in left column */
+.section-indicator {
+  position: sticky;
+  top: 14vh;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  letter-spacing: -0.01em;
 }
 
-/* Intro spans middle + right columns */
-#intro { grid-column: 2 / 4; font-family: var(--serif); font-size: 1.35rem; line-height: 1.75; text-align: left; margin-left: var(--intro-offset); padding-right: 2rem; padding-top: 14vh; letter-spacing: -0.05em; }
+/* Content sections */
+#intro { 
+  grid-column: 2 / 4; 
+  padding-top: 14vh;
+}
+
+.content-section {
+  min-height: 100vh;
+}
+
+#home {
+  font-family: var(--serif); 
+  font-size: 1.35rem; 
+  line-height: 1.75; 
+  text-align: left; 
+  padding-right: 2rem;
+  letter-spacing: -0.05em;
+}
+
+/* Essays section */
+#essays {
+  padding-top: 8vh;
+  margin-left: 0;
+}
+
+.essays-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.essay-link {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--text-primary);
+  padding: 0.65rem 0;
+  border-bottom: 1px solid transparent;
+  transition: opacity 0.2s ease;
+}
+
+.essay-link:hover {
+  opacity: 0.6;
+}
+
+.essay-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  padding-right: 2rem;
+}
+
+.essay-meta {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+/* Contact section */
+#contact {
+  padding-top: 8vh;
+  margin-left: 0;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-link {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--text-primary);
+  padding: 0.65rem 0;
+  border-bottom: 1px solid transparent;
+  transition: opacity 0.2s ease;
+}
+
+.contact-link:hover {
+  opacity: 0.6;
+}
+
+.contact-platform {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  padding-right: 2rem;
+}
+
+.contact-handle {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  text-align: left;
+}
 
 .middle p {
   margin-bottom: 1.1rem; /* slightly tighter between lines visually */
@@ -234,7 +349,15 @@ a.tag:hover { text-decoration: none; background: #000; color: #fff; transition: 
   .site-title { font-size: clamp(1.5rem, 8vw, 2.25rem); }
   .container { grid-template-columns: 1fr; }
   .column { padding: 1rem; border-right: none; border-bottom: none; }
-  #intro { grid-column: 1 / -1; margin-left: 0; padding: 12vh 1rem 0 1rem; }
+  .section-indicator { display: none; }
+  #intro { grid-column: 1 / -1; padding: 12vh 1rem 0 1rem; }
+  #home { margin-left: 0; padding: 0 1rem; }
+  #essays { padding: 0 1rem; }
+  #contact { padding: 0 1rem; }
+  .contact-link { grid-template-columns: 1fr; gap: 0.25rem; }
+  .contact-handle { text-align: left; font-size: 0.9rem; color: var(--text-secondary); }
+  .essay-link { grid-template-columns: 1fr; gap: 0.25rem; }
+  .essay-meta { text-align: left; font-size: 0.9rem; color: var(--text-secondary); }
   .sections { grid-column: 1 / -1; grid-template-columns: 1fr; }
   .when { text-align: left; }
 }
