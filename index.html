@@ -129,6 +129,29 @@
         </section>
          -->
 
+        <!-- Building Section -->
+        <section class="content-section" id="building">
+          <div class="building-container">
+            <div class="building-entry">
+              <div class="building-content">
+                <a href="https://www.siftaitechnologies.com/" target="_blank" rel="noopener noreferrer" class="project-title">SIFT AI Technologies</a>
+              </div>
+              <div class="building-meta">
+                <span class="project-category">AI-native compliance solutions</span>
+              </div>
+            </div>
+            
+            <div class="building-entry">
+              <div class="building-content">
+                <a href="https://www.fplaiinsight.com" target="_blank" rel="noopener noreferrer" class="project-title">Fantasy Premier League Insight</a>
+              </div>
+              <div class="building-meta">
+                <span class="project-category">FPL strategy platform</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- Contact Section -->
         <section class="content-section" id="contact">
           <div class="contact-container">
@@ -172,10 +195,10 @@
         const sectionObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              if (entry.target.id === 'essays') {
+              if (entry.target.id === 'building') {
                 indicator.style.opacity = '0';
                 setTimeout(() => {
-                  indicator.textContent = 'Essays';
+                  indicator.textContent = 'Building';
                   indicator.style.opacity = '1';
                 }, 150);
               } else if (entry.target.id === 'contact') {
