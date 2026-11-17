@@ -404,6 +404,7 @@ a.tag:hover { text-decoration: none; background: #000; color: #fff; transition: 
   left: 0;
   z-index: 2000;
   width: 320px;
+  max-width: calc(100vw - 32px);
   background: var(--background);
   border: 1px solid var(--text-primary);
   border-radius: 2px;
@@ -493,6 +494,9 @@ a.tag:hover { text-decoration: none; background: #000; color: #fff; transition: 
 }
 .link-preview__arrow { flex: none; color: var(--text-primary); }
 
-@media (hover: none), (pointer: coarse) {
-  .link-preview { display: none; }
+/* Touch screens: the card is tappable and opens the link */
+.link-preview.is-touch {
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }

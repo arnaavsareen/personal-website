@@ -101,8 +101,10 @@
       // gets a card; add data-preview="images/previews/<name>.jpg" to show
       // an image (16:10, or add data-preview-shape="square" for a square
       // one), otherwise the card shows the link's domain as text.
+      // With a mouse the card shows on hover; on touch screens the first tap
+      // shows it and a second tap on the link (or a tap on the card) opens it.
       (function () {
-        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+        const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
         const links = Array.from(document.querySelectorAll('a[href^="http"]'))
           .filter((a) => !a.closest('#contact'));
@@ -123,6 +125,7 @@
             '<span class="link-preview__host"></span>' +
             '<span class="link-preview__arrow">↗</span>' +
           '</div>';
+        if (!canHover) card.classList.add('is-touch');
         document.body.appendChild(card);
 
         const img = card.querySelector('img');
@@ -207,17 +210,34 @@
           hideTimer = setTimeout(hide, 60);
         }
 
-        links.forEach((link) => {
-          link.addEventListener('mouseenter', (e) => show(link, e.clientX));
-          // Also re-shows the card after a scroll hid it mid-hover.
-          link.addEventListener('mousemove', (e) => show(link, e.clientX));
-          link.addEventListener('mouseleave', hideSoon);
-          link.addEventListener('focus', () => {
-            if (link.matches(':focus-visible')) show(link, null);
+        if (canHover) {
+          links.forEach((link) => {
+            link.addEventListener('mouseenter', (e) => show(link, e.clientX));
+            // Also re-shows the card after a scroll hid it mid-hover.
+            link.addEventListener('mousemove', (e) => show(link, e.clientX));
+            link.addEventListener('mouseleave', hideSoon);
+            link.addEventListener('focus', () => {
+              if (link.matches(':focus-visible')) show(link, null);
+            });
+            link.addEventListener('blur', hide);
+            link.addEventListener('click', hide);
           });
-          link.addEventListener('blur', hide);
-          link.addEventListener('click', hide);
-        });
+        } else {
+          links.forEach((link) => {
+            link.addEventListener('click', (e) => {
+              // Second tap on the same link: let it open normally.
+              if (active === link) return hide();
+              e.preventDefault();
+              show(link, null);
+            });
+          });
+          card.addEventListener('click', () => {
+            if (active) active.click();
+          });
+          document.addEventListener('click', (e) => {
+            if (active && !active.contains(e.target) && !card.contains(e.target)) hide();
+          });
+        }
         window.addEventListener('scroll', hide, { passive: true });
         window.addEventListener('blur', hide);
 
