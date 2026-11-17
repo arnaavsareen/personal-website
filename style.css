@@ -132,7 +132,8 @@ body {
 /* Section indicator in left column */
 .section-indicator {
   position: sticky;
-  top: 14vh;
+  /* Never higher than just below the site title, even in short windows */
+  top: max(14vh, 6rem);
   font-family: var(--font-primary);
   font-weight: 600;
   font-size: 1.25rem;
@@ -215,6 +216,9 @@ body {
   padding-top: 8vh;
   margin-left: 0;
 }
+
+/* Shown on phones only; desktop uses the sticky section indicator */
+.section-heading { display: none; }
 
 .contact-container {
   display: flex;
@@ -359,25 +363,23 @@ a.tag:hover { text-decoration: none; background: #000; color: #fff; transition: 
 
 /* Responsive */
 @media (max-width: 900px) {
-  .site-header { padding: 0.5rem 1rem; background: transparent; border-bottom: none; }
+  /* Solid so text scrolling up slides under the name instead of through it */
+  .site-header { padding: 0.5rem 1rem; background: var(--background); border-bottom: none; }
   .site-title { font-size: clamp(1.5rem, 8vw, 2.25rem); }
   .container { grid-template-columns: 1fr; }
   .column { padding: 1rem; border-right: none; border-bottom: none; }
-  .section-indicator { 
-    display: block !important; 
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    background: transparent;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+  /* The floating label would sit on top of the name, so phones get a
+     static heading in the Contact section instead. */
+  .section-indicator { display: none; }
+  .section-heading {
+    display: block;
+    margin: 0 0 0.75rem;
     font-family: var(--font-primary);
     font-weight: 600;
     font-size: 1.125rem;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    z-index: 1000;
-    backdrop-filter: none;
+    color: var(--text-primary);
   }
   #intro { grid-column: 1 / -1; padding: 8vh 1rem 0 1rem; }
   #home { margin-left: 0; padding: 0 1rem; }
