@@ -1,14 +1,15 @@
-Arnaav Sareen is a [founder](https://www.linkedin.com/in/arnaavsareen/) and
-engineer working at the intersection of
-artificial intelligence and compliance, he is building
-[SIFT 's](https://www.siftaitechnologies.com/)
-AI-native solutions for industry 4.0. With a background in Computer Science and Applied Economics from
-[Cornell University](https://www.cornell.edu/), where he was the Captain of the D1 Men's [Varsity Squash](https://cornellbigred.com/sports/mens-squash/roster) team,
-he is currently architecting compliance workflows and optimizing
-microservices for manufacturing environments.
-When not immersed in AI systems, his interests span art, history, Fantasy Premier League strategy, and the enduring hope that comes with supporting
-[Tottenham Hotspur](https://www.tottenhamhotspur.com/). If you need more information
-[contact him](mailto:arnaav24sareen@gmail.com).
+[Arnaav Sareen](https://www.linkedin.com/in/arnaavsareen/) is an engineer and builder working at the intersection of
+artificial intelligence and industry. He studied computer science and applied economics at
+[Cornell University](https://www.cornell.edu/), where he captained the d1 men's
+[Varsity Squash](https://cornellbigred.com/sports/mens-squash/roster/2024-25) team.
+He's currently at [Axle (YC S22)](https://www.axle.insure/), building the clearinghouse for insurance.
+Before that, he was a fellow at [The Residency](https://www.livetheresidency.com/), building
+[SIFT](https://www.siftaitechnologies.com/) for industry 4.0 with the goal of growing it into the
+ai operating system for factories. He's most excited about building at the frontier, especially
+self-healing software. When he's not working or training, arnaav's interests span art, history,
+[Fantasy Premier League](https://www.fplaiinsight.com) strategy, and the enduring hope that comes
+with supporting [Tottenham Hotspur](https://www.tottenhamhotspur.com/). If you'd like to learn more,
+feel free to [contact him](mailto:arnaav24sareen@gmail.com).
 
 
-[LinkedIn@arnaavsareen](https://www.linkedin.com/in/arnaavsareen/) [GitHub@arnaavsareen](https://github.com/arnaavsareen) [Instagram@arnaav\_sareen](https://instagram.com/arnaav_sareen) [Email](arnaav24sareen@gmail.com)
+[LinkedIn@arnaavsareen](https://www.linkedin.com/in/arnaavsareen/) [GitHub@arnaavsareen](https://github.com/arnaavsareen) [Instagram@arnaav\_sareen](https://instagram.com/arnaav_sareen) [Email](mailto:arnaav24sareen@gmail.com)
