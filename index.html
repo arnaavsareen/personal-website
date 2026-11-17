@@ -23,40 +23,8 @@
         <!-- Home Section -->
         <section class="content-section" id="home">
           <p class="intro-text">
-            <a class="boxed highlight-fade" style="--delay:.05s" href="https://www.linkedin.com/in/arnaavsareen/" target="_blank" rel="noopener noreferrer">Arnaav Sareen</a> is an engineer and <span class="highlight-fade" style="--delay:.1s">builder</span> working at the intersection of artificial intelligence and industry. He studied computer science and applied economics at <a class="boxed highlight-fade" style="--delay:.2s" href="https://www.cornell.edu/" target="_blank" rel="noopener noreferrer">Cornell University</a>, where he captained the d1 men's <a class="boxed highlight-fade" style="--delay:.25s" href="https://cornellbigred.com/sports/mens-squash/roster/2024-25" target="_blank" rel="noopener noreferrer">Varsity Squash</a> team. Currently building at <a class="boxed highlight-fade" style="--delay:.3s" href="https://www.axle.insure/" target="_blank" rel="noopener noreferrer">Axle (YC S22)</a>. He was a fellow at <a class="boxed highlight-fade" style="--delay:.35s" href="https://www.livetheresidency.com/" target="_blank" rel="noopener noreferrer">The Residency</a>, building <a class="boxed highlight-fade" style="--delay:.4s" href="https://www.siftaitechnologies.com/" target="_blank" rel="noopener noreferrer">SIFT</a> for industry 4.0, with the goal of growing it into the ai operating system for factories powering the modern industrial stack. When he's not writing code or architecting ai systems, arnaav's interests span art, history, <a class="boxed highlight-fade" style="--delay:.45s" href="https://www.fplaiinsight.com" target="_blank" rel="noopener noreferrer">Fantasy Premier League</a> strategy, and the enduring hope that comes with supporting <a class="boxed highlight-fade" style="--delay:.5s" href="https://www.tottenhamhotspur.com/" target="_blank" rel="noopener noreferrer">Tottenham Hotspur</a>. If you'd like to learn more, feel free to <a class="boxed underline-reveal highlight-fade" style="--delay:.55s" href="mailto:arnaav24sareen@gmail.com">Contact Him</a>.
+            <a class="boxed highlight-fade" style="--delay:.05s" href="https://www.linkedin.com/in/arnaavsareen/" data-preview="images/previews/arnaav.jpg" data-preview-shape="square" target="_blank" rel="noopener noreferrer">Arnaav Sareen</a> is an engineer and <span class="highlight-fade" style="--delay:.1s">builder</span> working at the intersection of artificial intelligence and industry. He studied computer science and applied economics at <a class="boxed highlight-fade" style="--delay:.2s" href="https://www.cornell.edu/" data-preview="images/previews/cornell.jpg" target="_blank" rel="noopener noreferrer">Cornell University</a>, where he captained the d1 men's <a class="boxed highlight-fade" style="--delay:.25s" href="https://cornellbigred.com/sports/mens-squash/roster/2024-25" data-preview="images/previews/squash.jpg" target="_blank" rel="noopener noreferrer">Varsity Squash</a> team. Currently building at <a class="boxed highlight-fade" style="--delay:.3s" href="https://www.axle.insure/" data-preview="images/previews/axle.jpg" target="_blank" rel="noopener noreferrer">Axle (YC S22)</a>. He was a fellow at <a class="boxed highlight-fade" style="--delay:.35s" href="https://www.livetheresidency.com/" data-preview="images/previews/residency.jpg" target="_blank" rel="noopener noreferrer">The Residency</a>, building <a class="boxed highlight-fade" style="--delay:.4s" href="https://www.siftaitechnologies.com/" data-preview="images/previews/sift.jpg" target="_blank" rel="noopener noreferrer">SIFT</a> for industry 4.0, with the goal of growing it into the ai operating system for factories powering the modern industrial stack. When he's not writing code or architecting ai systems, arnaav's interests span art, history, <a class="boxed highlight-fade" style="--delay:.45s" href="https://www.fplaiinsight.com" data-preview="images/previews/fpl-insight.jpg" target="_blank" rel="noopener noreferrer">Fantasy Premier League</a> strategy, and the enduring hope that comes with supporting <a class="boxed highlight-fade" style="--delay:.5s" href="https://www.tottenhamhotspur.com/" data-preview="images/previews/tottenham.jpg" target="_blank" rel="noopener noreferrer">Tottenham Hotspur</a>. If you'd like to learn more, feel free to <a class="boxed underline-reveal highlight-fade" style="--delay:.55s" href="mailto:arnaav24sareen@gmail.com">Contact Him</a>.
           </p>
-        </section>
-
-        <!-- Building Section -->
-        <section class="content-section" id="building">
-          <div class="building-container">
-            <div class="building-entry">
-              <div class="building-content">
-                <a href="https://www.siftaitechnologies.com/" target="_blank" rel="noopener noreferrer" class="project-title">SIFT AI Technologies</a>
-              </div>
-              <div class="building-meta">
-                <span class="project-category">AI-native compliance solutions</span>
-              </div>
-            </div>
-            
-            <div class="building-entry">
-              <div class="building-content">
-                <a href="https://www.fplaiinsight.com" target="_blank" rel="noopener noreferrer" class="project-title">Fantasy Premier League Insight</a>
-              </div>
-              <div class="building-meta">
-                <span class="project-category">FPL strategy platform</span>
-              </div>
-            </div>
-            
-            <div class="building-entry">
-              <div class="building-content">
-                <a href="https://better-jetpunk.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-title">Better JetPunk</a>
-              </div>
-              <div class="building-meta">
-                <span class="project-category">Juat a Better JetPunk</span>
-              </div>
-            </div>
-          </div>
         </section>
 
         <!-- Contact Section -->
@@ -102,13 +70,7 @@
         const sectionObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              if (entry.target.id === 'building') {
-                indicator.style.opacity = '0';
-                setTimeout(() => {
-                  indicator.textContent = 'Building';
-                  indicator.style.opacity = '1';
-                }, 150);
-              } else if (entry.target.id === 'contact') {
+              if (entry.target.id === 'contact') {
                 indicator.style.opacity = '0';
                 setTimeout(() => {
                   indicator.textContent = 'Contact';
@@ -132,6 +94,146 @@
         // Smooth scrolling
         document.documentElement.style.scrollBehavior = 'smooth';
       });
+    </script>
+
+    <script>
+      // Link hover previews. Every external link outside the Contact section
+      // gets a card; add data-preview="images/previews/<name>.jpg" to show
+      // an image (16:10, or add data-preview-shape="square" for a square
+      // one), otherwise the card shows the link's domain as text.
+      (function () {
+        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+        const links = Array.from(document.querySelectorAll('a[href^="http"]'))
+          .filter((a) => !a.closest('#contact'));
+        if (!links.length) return;
+
+        const card = document.createElement('div');
+        card.className = 'link-preview';
+        card.setAttribute('aria-hidden', 'true');
+        card.innerHTML =
+          '<div class="link-preview__media">' +
+            '<img alt="" decoding="async" />' +
+            '<div class="link-preview__fallback">' +
+              '<span class="link-preview__fallback-host"></span>' +
+              '<span class="link-preview__fallback-path"></span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="link-preview__caption">' +
+            '<span class="link-preview__host"></span>' +
+            '<span class="link-preview__arrow">↗</span>' +
+          '</div>';
+        document.body.appendChild(card);
+
+        const img = card.querySelector('img');
+        const hostEl = card.querySelector('.link-preview__host');
+        const fallbackHost = card.querySelector('.link-preview__fallback-host');
+        const fallbackPath = card.querySelector('.link-preview__fallback-path');
+
+        const GAP = 12;
+        const EDGE = 16;
+        let active = null;
+        let pointerX = null;
+        let showTimer = 0;
+        let hideTimer = 0;
+        let frame = 0;
+
+        img.addEventListener('load', () => img.classList.add('is-loaded'));
+
+        function fill(link) {
+          const url = new URL(link.href);
+          const host = url.hostname.replace(/^www\./, '');
+          const src = link.dataset.preview;
+          hostEl.textContent = host;
+          card.classList.toggle('is-text', !src);
+          card.classList.toggle('is-square', link.dataset.previewShape === 'square');
+          if (src) {
+            if (img.getAttribute('src') !== src) {
+              img.classList.remove('is-loaded');
+              img.src = src;
+            }
+          } else {
+            fallbackHost.textContent = host;
+            fallbackPath.textContent = url.pathname.replace(/\/$/, '');
+          }
+        }
+
+        function place() {
+          frame = 0;
+          if (!active) return;
+          const r = active.getBoundingClientRect();
+          const w = card.offsetWidth;
+          const h = card.offsetHeight;
+          const cx = pointerX === null ? r.left + r.width / 2 : pointerX;
+          const x = Math.min(Math.max(cx - w / 2, EDGE), window.innerWidth - w - EDGE);
+          let y = r.top - h - GAP;
+          const below = y < EDGE;
+          if (below) y = Math.min(r.bottom + GAP, window.innerHeight - h - EDGE);
+          card.classList.toggle('is-below', below);
+          card.style.left = x + 'px';
+          card.style.top = y + 'px';
+        }
+
+        function schedule() {
+          if (!frame) frame = requestAnimationFrame(place);
+        }
+
+        function show(link, x) {
+          clearTimeout(hideTimer);
+          pointerX = x;
+          if (active === link) return schedule();
+          active = link;
+          fill(link);
+          place();
+          if (card.classList.contains('is-visible')) return;
+          clearTimeout(showTimer);
+          showTimer = setTimeout(() => {
+            if (active === link) card.classList.add('is-visible');
+          }, 80);
+        }
+
+        function hide() {
+          clearTimeout(showTimer);
+          clearTimeout(hideTimer);
+          active = null;
+          pointerX = null;
+          card.classList.remove('is-visible');
+        }
+
+        // Short grace period so moving between adjacent links swaps the
+        // card instead of fading it out and back in.
+        function hideSoon() {
+          clearTimeout(hideTimer);
+          hideTimer = setTimeout(hide, 60);
+        }
+
+        links.forEach((link) => {
+          link.addEventListener('mouseenter', (e) => show(link, e.clientX));
+          // Also re-shows the card after a scroll hid it mid-hover.
+          link.addEventListener('mousemove', (e) => show(link, e.clientX));
+          link.addEventListener('mouseleave', hideSoon);
+          link.addEventListener('focus', () => {
+            if (link.matches(':focus-visible')) show(link, null);
+          });
+          link.addEventListener('blur', hide);
+          link.addEventListener('click', hide);
+        });
+        window.addEventListener('scroll', hide, { passive: true });
+        window.addEventListener('blur', hide);
+
+        // Warm the cache once the page is idle so the first hover is instant.
+        function preload() {
+          new Set(links.map((l) => l.dataset.preview).filter(Boolean)).forEach((src) => {
+            const i = new Image();
+            i.decoding = 'async';
+            i.src = src;
+          });
+        }
+        window.addEventListener('load', () => {
+          if ('requestIdleCallback' in window) requestIdleCallback(preload);
+          else setTimeout(preload, 1500);
+        });
+      })();
     </script>
   </body>
 </html>
