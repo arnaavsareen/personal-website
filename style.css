@@ -424,11 +424,14 @@ a.tag:hover { text-decoration: none; background: #000; color: #fff; transition: 
   visibility: visible;
   transform: translateY(0);
   transition: opacity 160ms ease, transform 160ms ease, visibility 0s;
+  /* While open, the card can be hovered and clicked to open the link */
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .link-preview__media {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: var(--preview-ratio, 16 / 10);
   background: #f4f4f4;
   overflow: hidden;
 }
@@ -496,9 +499,5 @@ a.tag:hover { text-decoration: none; background: #000; color: #fff; transition: 
 }
 .link-preview__arrow { flex: none; color: var(--text-primary); }
 
-/* Touch screens: the card is tappable and opens the link */
-.link-preview.is-touch {
-  pointer-events: auto;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
+/* Touch screens: no grey flash when the card is tapped */
+.link-preview.is-touch { -webkit-tap-highlight-color: transparent; }
